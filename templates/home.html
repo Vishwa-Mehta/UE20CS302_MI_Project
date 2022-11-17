@@ -10,7 +10,8 @@
 
 
     body {
-        background-image: url('https://static.vecteezy.com/system/resources/thumbnails/000/696/278/small/textured-black-background.jpg');
+        /* background-image: url('https://img.freepik.com/premium-photo/empty-white-classroom-background-with-green-chalkboard-table-seat-wooden-floor_10307-1501.jpg?w=2000'); */
+        background-color: #0b4c61;
         background-size: cover;
         font-family: sans-serif;
         margin-top: 40px;
@@ -34,8 +35,7 @@
     }
 
     tr:nth-child(even) {
-        /* background-color: #dddddd; */
-        background-color: #0b4c61;
+        background-color: #dddddd;
     }
 </style>
 
@@ -56,59 +56,25 @@
 <body>
 
     <div class='mt-3 text-center'>
-        <h1 style="width: auto;margin: auto;color: white;padding: 11px;font-size: 44px;color:beige">Face Recognition Based
+        <h1 style="width: auto;margin: auto;color: rgb(0, 0, 0);padding: 11px;font-size: 44px;">Face Recognition Based
             Attendance System</h1>
     </div>
 
     <div class='mt-3 text-center'>
-        <h3 style="font-size: 22px;color:beige;">{{ datetoday2 }} | <span id="clock"></span></h3>
+        <h3 style="font-size: 22px;color:rgb(15, 15, 14);">{{ datetoday2 }} | <span id="clock"></span></h3>
     </div>
 
     {% if mess%}
     <p class="text-center" style="color: red;font-size: 20px;">{{ mess }}</p>
     {% endif %}
 
-    <div class="row text-center" style="padding: 20px;margin: 20px;">
+    <div style="padding: 20px;margin: 20px;">
 
-        <div class="col"
-            style="border-radius: 20px;padding: 0px;background-color:rgb(211,211,211,0.5);margin:0px 10px 10px 10px;min-height: 400px;">
-            <h2 style="border-radius: 20px 20px 0px 0px;background-color: #0b4c61;color: white;padding: 10px;">Today's
-                Attendance <i class="material-icons">assignment</i></h2>
-            <a style="text-decoration: none;max-width: 300px;" href="/start">
-                <button
-                    style="font-size: 24px;font-weight: bold;border-radius: 10px;width:490px;padding: 10px;margin-top: 30px;margin-bottom: 30px;"
-                    type='submit' class='btn btn-primary btn-dark'>Take Attendance 
-                    <!-- <i
-                        class="material-icons">beenhere</i> -->
-                </button>
-            </a>
-            <table style="background-color: white;">
-                <tr>
-                    <td><b>S No</b></td>
-                    <td><b>Name</b></td>
-                    <td><b>ID</b></td>
-                    <td><b>Time</b></td>
-                </tr>
-                {% if l %}
-
-                {% for i in range(l) %}
-                <tr>
-                    <td>{{ i+1 }}</td>
-                    <td>{{ names[i] }}</td>
-                    <td>{{ rolls[i] }}</td>
-                    <td>{{ times[i] }}</td>
-                </tr>
-                {% endfor %}
-                {% endif %}
-            </table>
-
-        </div>
-
-        <div class="col"
-            style="border-radius: 20px;padding: 0px;background-color:rgb(211,211,211,0.5);margin:0px 10px 10px 10px;height: 400px;">
+            <div class="row text-center"
+            style="padding: 0px;background-color:rgb(211,211,211,0.5);margin:0px 10px 10px 10px;height: 400px;">
             <form action='/add' method="POST" enctype="multipart/form-data">
-                <h2 style="border-radius: 20px 20px 0px 0px;background-color: #0b4c61;color: white;padding: 10px;">Add
-                    New User <i class="material-icons">control_point_duplicate</i></h2>
+                <h2 style="background-color: #610b5b;color: white;padding: 10px;">Add
+                    New User</h2> <!--<i class="material-icons">control_point_duplicate</i></h2> -->
                 <label style="font-size: 20px;"><b>Enter New User Name*</b></label>
                 <br>
                 <input type="text" id="newusername" name='newusername'
@@ -127,7 +93,41 @@
             </form>
         </div>
 
+        <div class="row text-center"
+        style="padding: 0px;background-color:rgb(211,211,211,0.5);margin:0px 10px 10px 10px;height: 400px;">
+        <h2 style="background-color: #610b5b;color: white;padding: 10px;height: 75px;">Today's
+            Attendance Sheet</h2>
+        <a style="text-decoration: none;max-width: 300px;" href="/start">
+            <button
+                style="text-align: center;font-size: 24px;font-weight: bold;width:490px;padding: 10px;margin-top: 30px;margin-bottom: 30px;
+                background-color: black;color:white"
+                type='submit' >Take Attendance </button> <!--class='btn btn-primary'> -->
+        </a>
+        <table style="background-color: white;">
+            <tr>
+                <td><b>Sl No</b></td>
+                <td><b>Name</b></td>
+                <td><b>ID</b></td>
+                <td><b>Time</b></td>
+            </tr>
+            {% if l %}
+
+            {% for i in range(l) %}
+            <tr>
+                <td>{{ i+1 }}</td>
+                <td>{{ names[i] }}</td>
+                <td>{{ rolls[i] }}</td>
+                <td>{{ times[i] }}</td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+            </table>
+
+        </div>
+
     </div>
+
+    <h5 style="padding: 25px;"><i>By VISHWA MEHTA, VINTI AGRAWAL, VISMAYA R</i></h5>
 
     <script type="text/javascript">
         var clockElement = document.getElementById('clock');
