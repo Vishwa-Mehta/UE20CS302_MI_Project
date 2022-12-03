@@ -62,7 +62,7 @@ def train_model():
             faces.append(resized_face.ravel())
             labels.append(user)
     faces = np.array(faces)
-    knn = KNeighborsClassifier(n_neighbors=15)
+    knn = KNeighborsClassifier(n_neighbors=5)
     knn.fit(faces,labels)
     joblib.dump(knn,'static/face_recognition_model.pkl')
 
